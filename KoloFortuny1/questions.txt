@@ -1,0 +1,90 @@
+Ile chromosomów ma chomik europejski?;Biologia;36;42;18;13;18;trudne
+Ile chromosomów ma ziemniak?;Biologia;12;0;1;24;12;trudne
+Jak po łacińsku nazwya się stokrotka?;Biologia;Bellis;Astilbe;Osteospermum;Helleborus niger;Bellis;trudne
+Jak nazywa się czynnik barwiący krew?;Biologia;hemoglobina;homoglobina;laktoza;trombocyty;hemoglobina;średnie
+Istnienie w ludzkim układzie pokarmowym flory bakteryjnej to przykład?;Biologia;Symbiozy;Apoptozy;Dystrofii;Konwergencji;Symbiozy;średnie
+Dziobak to?;Biologia;Torbacz;Ssak;Waleń;Obleniec;Ssak;średnie
+Ile nerek ma człowiek?;Biologia;1;2;3;1,5;2;łatwe
+Ile rąk ma zdrowy człowiek?;Biologia;2;1;4;3;2;łatwe
+Jak nazywa się ciecz płynąca w żyłach?;Biologia;Krew;Coca Cola;Mocz;Nie płynie tam żadna ciecz;Krew;łatwe
+Kiedy wystartował pierwszy wyścig samochodowy?;Motoryzacja;1799;1823;1894;1929;1894;trudne
+Jak nazywał się pierwszy samochód marki FORD?;Motoryzacja;Focus;Model A;Model T;Mustang;Model A;trudne
+Jaki olej zaleca producent do BMW X3 2.0D?;Motoryzacja;5W-40;10W-60;0-30W;10W-50;5W-40;trudne
+Który z systemów usuwa możliwość zablokowania się kół podczas hamowania?;Motoryzacja;ASR;ESP;ABS;TCS;ABS;średnie
+Ile zderzaków ma samochód?;Motoryzacja;1;2;3;4;2;średnie
+Jaka marka produkowała Tico?;Motoryzacja;Daewoo;Fiat;Porsche;Suzuki;Daewoo;średnie
+Co nie jest obowiązkowe w samochodzie?;Motoryzacja;Apteczka;Gaśnica;Trójkąt ostrzegawczy;Olej w silniku;Apteczka;łatwe
+Jakiej strony obowiązuje zasada na skrzyżowaniu równorzędnym?;Motoryzacja;Lewej;Prawej;Na wprost;Z tyłu;Prawej;łatwe
+Ile cylindrów ma silnik W12?;Motoryzacja;12;8;6;0;12;łatwe
+Jaki kaliber ma karabin wyborowy TOR?;Broń;7,62;12,7;12,4;7,92;12,7;trudne
+Jaki pistolet maszynowy nazywano Chicago Typerwirter?;Broń;M1928 Thompson;UZI;Scorpion;MAC-11;M1928 Thompson;trudne
+Jak nazywa się polski pistolet z czasów drugiej wojny światowej?;Broń;ViS;Colt;Glock;P226;Vis;trudne
+Jakiego kalibru jest karabin AR-15?;Broń;7,62;5,56;9;12,7;5,56;średnie
+Jakiego kalbiru jest karabin AK-47?;Broń;7,62;5,56;9;12,7;7,62;średnie
+Jak nazywa się pierwszy automatyczny karabin szturmowy?;Broń;AK47;STG-44;M4A1;M1 Garand;STG-44;średnie
+Jak nazywa się najpopularniejszy pistolet świata?;Broń;Glock;Colt Python;Draco;RXB9Tac;Glock;łatwe
+Jak nazywa się karabin który podczas ładowania ucinał kciuki niedoświadczonym użytkownikom?;Broń;M1 Garand;AK47;STG-44;Mauser;M1 Garand;łatwe
+Która z tych broni pochodzi z Rosji?;Broń;AK-47;M4;Galil;Aug;AK-47;łatwe
+Jaka jest stolica Nigerii?;Geografia;Niamey;Numej;Nigerios;Łódź;Niamey;trudne
+Jaka jest stolica Sri Lanki?;Geografia;Sri Kopne;Rinamo;Sri Dźajawardanapura Kotte;Sri Hejawanna De Kotte;Sri Dźajawardanapura Kotte;trudne
+Jaka jest stolica Madagaskaru?;Geografia;Antananarywa;Antanananaryrywa;Antarywa;Antarywo;Antananarywa;trudne
+Jaka jest stolica Bułgarii?;Geografia;Sofia;Maria;Leona;Indiana;Sofia;średnie
+Jaka jest stolica Chorwacji?;Geografia;Przedgrzeb;Pogrzeb;Zagrzeb;Grzeb;Zagrzeb;średnie
+Jaka jest stolica Rumuni?;Geografia;Bukareszt;Bugareszt;Bogareszt;Aresztbuk;Bukareszt;średnie
+Jaka jest stolica Polski?;Geografia;Kożuchów;Zakęcie;Przyborów;Warszawa;Warszawa;łatwe
+Jaka jest stolica USA?;Geografia;Waszyngton;Chicago;Detrioit;Los Angeles;Waszyntgon;łatwe
+Jaka jest stolica Czech?;Geografia;Praga;Prada;Proga;Preda;Praga;Łatwe
+Ile procent spowolnienia ma Kalista na E na maksymalnym poziomie?;Liga Legend;42;38;40;36;42;trudne
+Ile malphite ma cooldowna na R na 2 poziomie?;Liga Legend;105;100;90;110;105;trudne
+Kiedy został wydany Malphite?;Liga Legend;2005;2010;2015;2009;2009;trudne
+Jakiej rasy jest malphite?;Liga Legend;Golem;Skalniak;Yordl;Człowiek;Golem;średnie
+Kogo podwładnym była Kalista?;Liga Legend;Midas;Viego;Malphite;Hecarim;Viego;średnie
+Czyim bratem jest Darius?;Liga Legend;Draven;Viego;Garen;Katarina;Draven;średnie
+Kto jest najlepszym graczem Malphite na serwerze EUNE?;Liga Legend;Edi1201;CanYon23;kalista balanced;Kopne;Edi1201;łatwe
+Czym rzuca malphite na Q?;Liga Legend;Kamieniem;Piłką;Nożem;Dzieckiem;Kamieniem;łatwe
+Jak nazywa się główna mapa w Lidze Legend?;Liga Legend;Howling Abyss;Twisted Treeline;Summoners Rift;Runeterra;Summoners Rift;łatwe
+Kto poszedł po milion?;Influencerzy;Paramaxil;Japczan;Bokeher;rexxu0;Paramaxil;trudne
+Kto ma fresh brode fresh?;Influencerzy;Supermario;Japczan;GokuSunn;Kuba Post;Supermario;trudne
+Kto lubi nabijać karabiny?;Influencerzy;Supermario;Japczan;GokuSunn;Kuba Post;Supermario;trudne
+Kto śpiewał o leśnej dolinie?;Influencerzy;Gural;Masny Ben;Rafonix;Boxdel;Rafonix;średnie
+Kim jest druid z lasu?;Influencerzy;SA Wardega;Boxdel;Konopski;Japczan;SA Wardega;średnie
+Jaka jest prawdopodobna toźsamość Masnego Bena?;Influencerzy;Boxdel;Rafonix;Bokeher;Frmn;Boxdel;średnie
+Kto nawet jak rozbije bank dalej będzie nosił dres?;Influencerzy;Miszel Traper;Midas;Edzio;Filipek;Miszel Traper;łatwe
+Kto zamienia wszystko w złoto?;Influencerzy;Midas;Sentinel;iDelti;Bobcat;Midas;łatwe
+Kto reasumujac wszystkie aspekty kwintesencji tematu doszedł do fundamendalej konkluzji?;Influencerzy;Pudzian;JP2;Gortat;Najman;Pudzian;łatwe
+Czym jest wyróżnik trójmianu kwadratowego?;Matematyka;Delta;Trójkąt;Miejsce zerowe;Niczym;Delta;trudne
+Ile kątów ma deltoid?;Matematyka;1;2;3;4;4;trudne
+Czym jest f(x)?;Matematyka;y;a;b;d;y;trudne
+Ile to logarytm przy podstawie 10 z 10?;Matematyka;1;10;0;-1;1;średnie
+2,4,x,16 czym jest x?;Matematyka;6;8;10;12;8;średnie
+3,9,x, czym jest x?;Matematyka;27;54;34;55;27;średnie
+Ile to 2+2*2?;Matematyka;4;6;3;8;6;łatwe
+Ile to (1*3)/1?;Matematyka;1;2;3;4;3;łatwe
+Ile to (5*3)/5?;Matematyka;1;2;3;4;3;łatwe
+W jakim roku powstało Call Of Duty 4 Modern Warfare?;Gry;2007;2008;2009;2010;2007;trudne
+W jakim roku powstał Skyrim?;Gry;2009;2010;2011;2012;2011;trudne
+W jakim roku powstał Scrap Mechanic?;Gry;2015;2016;2017;2018;2017;trudne
+W jakiej grze mogliśmy uzyskać skin John Wick?;Gry;Payday The Heist;Fortnite;Tibia;Margonem;Fornite;średnie
+W jakiej grze grała drużyna Virtus.pro?;Gry;LOL;Dota 2;WOW;CS:GO;CS:GO;średnie
+W jakiej grze grała drużyna NiP?;Gry;LOL;Dota 2;WOW;CS:GO;CS:GO;średnie
+Kto był zdrajcą w GTA SA?;Gry;Ryder;Sweet;Woozie;Pulaski;Ryder;łatwe
+Jaka broń znajduje się na dachu domu Sweet'a?;Gry;UZI;TEC-9;Glock;M4;TEC-9;łatwe
+Jakiego auta wybucha w pierwszej misji w GTA SA?;Gry;Perennial;Sultan;Greenwood;Infernus;Perennial;łatwe
+Kto napisał wiersz Gdybanie?;Polski;Jan Słowacki;Adam Mickiewicz;Jakub Sawicki;Amadeusz Ferrari;Jakub Sawicki;trudne
+Kto napisał wiersz Niepewność?;Polski;Jan Słowacki;Adam Mickiewicz;Jakub Sawicki;Amadeusz Ferrari;Adam Mickiewicz;trudne
+Kto napisał wiersz Pamiętnik?;Polski;Jan Słowacki;Adam Mickiewicz;Jakub Sawicki;Amadeusz Ferrari;Jakub Sawicki;trudne
+Kto napisał treny?;Polski;Jan Słowacki;Adam Mickiewicz;Jakub Sawicki;Taco Hemingway;Jan Kochanowski;średnie
+Kto napisał latarnika?;Polski;Józef Wybicki;Henryk Sienkiewicz;Taco Hemingway;Henryk Sienkiewicz;Henryk Sienkiewicz;średnie
+Kto napisał dziady?;Polski;Jan Słowacki;Adam Mickiewicz;Jakub Sawicki;Taco Hemingway;Adam Mickiewicz;średnie
+Jaka część mowy to "robić"?;Polski;Czasownik;Rzeczownik;Przymiotnik;Onomatopeja;Czasownik;łatwe
+Jaka część mowy to "BUM"?;Polski;Czasownik;Rzeczownik;Przymiotnik;Onomatopeja;Onomatopeja;łatwe
+Jaka część mowy to "Zegarek"?;Polski;Czasownik;Rzeczownik;Przymiotnik;Onomatopeja;Rzeczownik;łatwe
+Co to jest CH3OH?;Chemia;Etanol;Metanol;Nitro;Paliwo lotnicze;Metanol;trudne
+Co to jest C3H8O3?;Chemia;Glikol;Gliceryna;Etanol;Efedryna;Gliceryna;trudne
+Co to jest C10H15NO?;Chemia;Efedryna;Gliceryna;Etanol;Paliwo lotnicze;Efedryna;trudne
+Substancja mająca pH równe 9 jest?;Chemia;Zasadą;Kwasem;Izotopem;Mieszaniną;Zasadą;średnie
+Podczas lutowaniu cyna ulega?;Chemia;Rozpuszczaniu;Topnieniu;Polimeryzacji;Sublimacji;Topnieniu;średnie
+Który z wymienionych przykładów NIE jest związkiem chemicznym?;Chemia;Woda;Celuloza;Spirytus;Deuter;Deuter;średnie
+H to symbol chemiczny?;Chemia;Wodoru;Tlenu;Żelaza;Berylu;Wodoru;łatwe
+Fe to symbol chemiczny?;Chemia;Wodoru;Tlenu;Żelaza;Berylu;Wodoru;łatwe
+P to symbol chemiczny?;Chemia;Fosforu;Potasu;Żelaza;Berylu;Wodoru;łatwe
