@@ -25,6 +25,6 @@ public class JokeList implements JokeListImp {
         for (Joke joke : jokeList) {
             res += joke.getContent()+"\n\n";
         }
-        return res.substring(0, res.length()-2);
+        return res.substring(0, res.length());
     }
 }

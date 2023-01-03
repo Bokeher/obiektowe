@@ -3,6 +3,8 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class GetData {
@@ -18,7 +20,7 @@ public class GetData {
             HttpResponse response = client.send(request, HttpResponse.BodyHandlers.ofString());
             return response.body().toString();
         } catch(Exception e) {
-            e.printStackTrace();
+            System.out.println("Brak internetu");
         }
         return null;
     }
@@ -44,28 +46,73 @@ public class GetData {
 
         System.out.print("\nCzy chcesz wybrać kategorie [y - tak, n - nie]: ");
         String choseCategories = scString.nextLine();
+
+        if(choseCategories.equals("n")) return "https://v2.jokeapi.dev/joke/Any?type=single&amount="+jokeAmount+"&lang="+language;
         
-        boolean specifiedCategories = false;
-        ArrayList<String> categoriesList = new ArrayList<>();
-        while(choseCategories.equals("y")) {
-            final String[] allCategories = {"Programming", "Miscellaneous", "Dark", "Pun", "Spooky", "Christmas"};
-            specifiedCategories = true;
-            
+        List<String> list = Arrays.asList("Programming", "Miscellaneous", "Dark", "Pun", "Spooky", "Christmas");
+        boolean[] selects = new boolean[list.size()];
+        for (boolean b : selects) b = false;
+        
+        boolean cont = true;
+        while(cont) {
             c.clear();
-            System.out.print("\nWybierz kategorie: \n1 - programowanie, \n2 - różne, \n3 - ciemny humor, \n4 - gra słów, \n5 - straszny, \n6 - boże narodzenie \nWybór: ");
-            int categoryIndex = scInt.nextInt();
 
-            categoriesList.add(allCategories[categoryIndex - 1]);
+            System.out.println("Wybierz kategorie");
+            for (int i = 0; i < list.size(); i++) {
+                String elem = list.get(i);
+
+                String sign = getSign(selects[i]);
+                System.out.println((i+1)+"["+sign+"]: "+elem);
+            }
+            System.out.println("0 - Wyjście");
+
+            System.out.print("Wybor: ");
+            String answer = scString.nextLine();
+
+            int index = -2;
+            try {
+                index = Integer.parseInt(answer) - 1;
+            } catch (Exception e) {
+                // TODO: handle exception 
+            }
+
+            if(index > -1 && index < list.size()) {
+                selects[index] = !selects[index];
+            } else if(index == -1) cont = false; 
+        }
+
+        String categories = "";
+        int i = 0;
+        for (boolean b : selects) {
+            if(b) categories += list.get(i)+",";     
+            i++;       
+        }
+
+        categories = categories.substring(0, categories.length()-1);
+        
+        System.out.println(categories);
+
+        // boolean specifiedCategories = false;
+        // ArrayList<String> categoriesList = new ArrayList<>();
+        // while(choseCategories.equals("y")) {
+        //     final String[] allCategories = {"Programming", "Miscellaneous", "Dark", "Pun", "Spooky", "Christmas"};
+        //     specifiedCategories = true;
             
-            c.clear();
-            System.out.print("Czy chcesz wybrać jeszcze jedną kategorie [y - tak, n - nie]: ");
-            choseCategories = scString.nextLine();
-        };
-        String categories = "Any";
-        if(specifiedCategories) categories = String.join(",", categoriesList);
+        //     c.clear();
+        //     System.out.print("\nWybierz kategorie: \n1 - programowanie, \n2 - różne, \n3 - ciemny humor, \n4 - gra słów, \n5 - straszny, \n6 - boże narodzenie \nWybór: ");
+        //     int categoryIndex = scInt.nextInt();
 
-        scInt.close();
-        scString.close();
+        //     categoriesList.add(allCategories[categoryIndex - 1]);
+            
+        //     c.clear();
+        //     System.out.print("Czy chcesz wybrać jeszcze jedną kategorie [y - tak, n - nie]: ");
+        //     choseCategories = scString.nextLine();
+        // };
+        // String categories = "Any";
+        // if(specifiedCategories) categories = String.join(",", categoriesList);
+
+        // scInt.close();
+        // scString.close();
         return "https://v2.jokeapi.dev/joke/"+categories+"?type=single&amount="+jokeAmount+"&lang="+language;
     }
 
@@ -75,10 +122,8 @@ public class GetData {
         System.out.print("\nCzy chcesz zapisać jakis żart do pliku [y - tak, n - nie]: ");
         String answer = sc.nextLine();
 
-        if(answer == "n") {
-            sc.close();
-            return null;
-        }
+        if(answer == "n") return null;
+        
         ArrayList<Joke> list = jokeList.getList();
         boolean[] selects = new boolean[list.size()];
         for (boolean b : selects) b = false;
@@ -120,7 +165,7 @@ public class GetData {
             } else if(index == -1) cont = false; 
         }
         
-        sc.close();
+        // sc.close();
         return selects;
     }
     

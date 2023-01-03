@@ -21,7 +21,6 @@ public class SaveJokesToFile {
         Scanner sc = new Scanner(System.in);
         System.out.print("Wpisz nazwe pliku: ");
         String fileName = sc.nextLine();
-        sc.close();
 
         File f = new File(fileName+".txt");
 

@@ -8,6 +8,15 @@ class JokeApi{
         GetData gd = new GetData();
         String url = gd.getFromUser(false);
         String json = gd.getFromApi(url);
+        while(json == null) {
+            System.out.println("Ponawiam probe pobrania danych");
+            json = gd.getFromApi(url);
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            }
+        } 
         ArrayList<String> jokes = new StringConvert().jsonToStringList(json);
         JokeList jokeList = new JokeList(jokes);
         
