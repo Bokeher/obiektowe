@@ -1,0 +1,25 @@
+* {
+    background-color: #4f4f4f;  
+    color: white; 
+}
+p, h1{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+pre {font-family: Consolas,monospace}
+
+.gr {
+    color: #2e9c51;
+}
+.bl {
+    color: #2a88df;
+}
+.lbl {
+    color: #48cafa;
+}
+.yl {
+    color: #f0db39;
+}
+.pnk {
+    color: #c280b0;
+}

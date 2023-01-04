@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="frameStyle.css">
+</head>
+<body>
+    <h1>Tworzenie obiektów z wieloma konstruktorami</h1>
+    <p>
+        Tworzenie obiektów z wieloma konstruktorami w Javie może być przydatne, 
+        gdy jest potrzeba kilku różnych sposobów tworzenia obiektu. 
+    </p>
+    <pre>
+<span class="bl"><span class="bl">public</span> class</span> <span class="gr"><span class="yl">Obliczenia</span></span> <span class="pnk">{</span>
+    <span class="bl">private</span> <span class="gr">double</span> <span class="lbl">suma</span>;
+
+    <span class="bl">public</span> <span class="yl">Obliczenia</span><span class="pnk">(</span><span class="gr">double</span> <span class="lbl">liczba1</span>, <span class="gr">double</span> <span class="lbl">liczba2</span><span class="pnk">)</span> <span class="pnk">{</span>
+        <span class="lbl">suma</span> = <span class="lbl">liczba1</span> + <span class="lbl">liczba2</span>;
+    <span class="pnk">}</span>
+    <span class="bl">public</span> <span class="yl">Obliczenia</span><span class="pnk">(</span><span class="gr">double</span> <span class="lbl">liczba1</span>, <span class="gr">double</span> <span class="lbl">liczba2</span>, <span class="gr">double</span> <span class="lbl">liczba3</span><span class="pnk">)</span> <span class="pnk">{</span>
+        <span class="lbl">suma</span> = <span class="lbl">liczba1</span> + <span class="lbl">liczba2</span> + <span class="lbl">liczba3</span>;
+    <span class="pnk">}</span>
+
+    <span class="bl">public</span> <span class="gr">double</span> <span class="yl">getSuma</span><span class="pnk">()</span> <span class="pnk">{</span>
+        <span class="pnk">return</span> <span class="lbl">suma</span>;
+    <span class="pnk">}</span>
+<span class="pnk">}</span>
+    </pre>
+</body>
+</html>

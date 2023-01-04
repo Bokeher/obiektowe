@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="frameStyle.css">
+</head>
+<body>
+    <h1>Modyfikatory dostępu</h1>
+    <p>
+        W Javie istnieją trzy modyfikatory dostępu: <span class="bl">private</span>, <span class="bl">public</span> i <span class="bl">protected</span>. <br> <br>
+        Modyfikator <span class="bl">private</span> oznacza, że dostęp do danej zmiennej lub metody jest możliwy tylko wewnątrz klasy, w której została ona zdefiniowana. <br>
+        Modyfikator <span class="bl">public</span> oznacza, że dostęp do danej zmiennej lub metody jest możliwy z każdego miejsca w kodzie. <br>
+        Modyfikator <span class="bl">protected</span> oznacza, że dostęp do danej zmiennej lub metody jest możliwy wewnątrz klasy oraz we wszystkich klasach dziedziczących po tej klasie. <br>
+    </p>
+    <pre>
+<span class="bl">public class</span> <span class="yl">Czlowiek</span> <span class="pnk">{</span>
+    <span class="bl">private</span> <span class="gr">String</span> <span class="lbl">imie</span>;
+    <span class="bl">public</span> <span class="gr">String</span> <span class="lbl">nazwisko</span>;
+    <span class="bl">protected</span> <span class="gr">int</span> <span class="lbl">wiek</span>;
+<span class="pnk">}</span>
+    </pre>
+    <p>
+        W powyższym przykładzie zmienna <span class="lbl">imie</span> jest dostępna tylko wewnątrz klasy <span class="yl">Czlowiek</span>, 
+        zmienna <span class="lbl">nazwisko</span> jest dostępna z każdego miejsca w kodzie, a zmienna <span class="lbl">wiek</span> jest dostępna 
+        wewnątrz klasy <span class="yl">Czlowiek</span> oraz we wszystkich klasach dziedziczących po <span class="yl">Czlowiek</span>.
+    </p>
+</body>
+</html>

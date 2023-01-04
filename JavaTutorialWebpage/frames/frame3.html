@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="frameStyle.css">
+</head>
+<body>
+    <h1>Enkapsulacja (hermetyzacja)</h1>
+    <p>
+        Hermetyzacja jest mechanizmem służącym do ochrony danych przed nieuprawnionym 
+        dostępem lub modyfikacją. W Javie hermetyzacja jest osiągana poprzez użycie 
+        modyfikatora dostępu <span class="bl">private</span>. <br> <br>
+    </p>
+    <pre>
+<span class="bl">public</span> <span class="bl">class</span> <span class="yl">Obliczenia</span> <span class="pnk">{</span>
+    <span class="bl">private</span> <span class="gr">double</span> <span class="lbl">liczba1</span>;
+    <span class="bl">private</span> <span class="gr">double</span> <span class="lbl">liczba2</span>;
+
+    <span class="bl">public</span> <span class="yl">Obliczenia</span><span class="pnk">(</span><span class="gr">double</span> <span class="lbl">liczba1</span>, <span class="gr">double</span> <span class="lbl">liczba2</span><span class="pnk">)</span> <span class="pnk">{</span>
+        <span class="bl">this</span>.<span class="lbl">liczba1</span> = <span class="lbl">liczba1</span>;    
+        <span class="bl">this</span>.<span class="lbl">liczba2</span> = <span class="lbl">liczba2</span>;
+    <span class="pnk">}</span>
+
+    <span class="bl">public</span> <span class="gr">double</span> <span class="yl">getSuma</span><span class="pnk">()</span> <span class="pnk">{</span>
+        <span class="pnk">return</span> <span class="lbl">liczba1</span> + <span class="lbl">liczba2</span>;
+    <span class="pnk">}</span>
+<span class="pnk">}</span>
+    </pre>
+
+    <p>
+        W powyższym przykładzie zmienne <span class="lbl">liczba1</span> i <span class="lbl">liczba2</span> są hermetyzowane poprzez użycie modyfikatora private.  <br>
+        Aby mieć dostęp do tych zmiennych z innych klas, można stworzyć metody <span class="yl">getLiczba1()</span> i <span class="yl">getLiczba2()</span>.  <br>
+        Aby zmienić wartości tych zmiennych, można stworzyć metody <span class="yl">setLiczba1()</span> i <span class="yl">setLiczba2()</span>. <br>
+    </p>
+    <pre>
+<span class="bl">public</span> <span class="gr">double</span> <span class="yl">getLiczba1</span><span class="pnk">(</span><span class="pnk">)</span> <span class="pnk">{</span>
+    <span class="pnk">return</span> <span class="lbl">liczba1</span>;
+<span class="pnk">}</span>
+<span class="bl">public</span> <span class="gr">double</span> <span class="yl">getLiczba2</span><span class="pnk">(</span><span class="pnk">)</span> <span class="pnk">{</span>
+    <span class="pnk">return</span> <span class="lbl">liczba2</span>;
+<span class="pnk">}</span>
+
+<span class="bl">public</span> <span class="gr">void</span> <span class="yl">setLiczba1</span><span class="pnk">(</span><span class="gr">double</span> <span class="lbl">liczba1</span><span class="pnk">)</span> <span class="pnk">{</span>
+    <span class="pnk">this</span>.<span class="lbl">liczba1</span> = <span class="lbl">liczba1</span>;
+<span class="pnk">}</span>
+<span class="bl">public</span> <span class="gr">void</span> <span class="yl">setLiczba2</span><span class="pnk">(</span><span class="gr">double</span> <span class="lbl">liczba2</span><span class="pnk">)</span> <span class="pnk">{</span>
+    <span class="pnk">this</span>.<span class="lbl">liczba2</span> = <span class="lbl">liczba2</span>;
+<span class="pnk">}</span>
+        </pre>
+</body>
+</html>
