@@ -23,4 +23,7 @@ iframe {
 li:first-child {
     font-weight: bold;
 }
+li:hover {
+cursor: pointer;
+}
 
