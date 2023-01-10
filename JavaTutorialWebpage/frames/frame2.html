@@ -13,7 +13,7 @@
         W Javie istnieją trzy modyfikatory dostępu: <span class="bl">private</span>, <span class="bl">public</span> i <span class="bl">protected</span>. <br> <br>
         Modyfikator <span class="bl">private</span> oznacza, że dostęp do danej zmiennej lub metody jest możliwy tylko wewnątrz klasy, w której została ona zdefiniowana. <br>
         Modyfikator <span class="bl">public</span> oznacza, że dostęp do danej zmiennej lub metody jest możliwy z każdego miejsca w kodzie. <br>
-        Modyfikator <span class="bl">protected</span> oznacza, że dostęp do danej zmiennej lub metody jest możliwy wewnątrz klasy oraz we wszystkich klasach dziedziczących po tej klasie. <br>
+        Modyfikator <span class="bl">protected</span> oznacza, że dostęp do danej zmiennej lub metody jest możliwy wewnątrz klasy oraz we wszystkich klasach dziedziczących po tej klasie oraz w ramach tego samego pakietu. <br>
     </p>
     <pre>
 <span class="bl">public class</span> <span class="yl">Czlowiek</span> <span class="pnk">{</span>
@@ -27,5 +27,35 @@
         zmienna <span class="lbl">nazwisko</span> jest dostępna z każdego miejsca w kodzie, a zmienna <span class="lbl">wiek</span> jest dostępna 
         wewnątrz klasy <span class="yl">Czlowiek</span> oraz we wszystkich klasach dziedziczących po <span class="yl">Czlowiek</span>.
     </p>
+
+    <p>
+        Każda metoda musi posiadać modyfikator dostępu. <br>
+        Niektóre metody powinny posiadać modyfiaktor <span class="bl">private</span>, 
+        jeżeli nie powinny być dostępne w innych klasach. Najczęstszymi prywatnymi metodami są metody pomocnicze, które są przydatne tylko wewnątrz danej klasy.
+    </p>
+    <pre>
+<span class="bl">public class</span> <span class="yl">Obliczenia</span> <span class="pnk">{</span>
+    <span class="bl">private</span> <span class="gr">double</span> <span class="lbl">liczba1</span>;
+    <span class="bl">private</span> <span class="gr">double</span> <span class="lbl">liczba2</span>;
+    <span class="bl">private</span> <span class="gr">double</span> <span class="lbl">suma</span>;
+
+    <span class="kom">//konstruktor, który pobiera dane oraz wywołuje metodę obliczającą sume</span>
+    <span class="bl">public</span> <span class="yl">Obliczenia</span><span class="pnk">(</span><span class="gr">double</span> <span class="lbl">liczba1</span>, <span class="gr">double</span> <span class="lbl">liczba2</span><span class="pnk">)</span> <span class="pnk">{</span>
+        <span class="bl">this</span>.<span class="lbl">liczba1</span> = <span class="lbl">liczba1</span>;    
+        <span class="bl">this</span>.<span class="lbl">liczba2</span> = <span class="lbl">liczba2</span>;
+        <span class="yl">obliczSume</span><span class="pnk">()</span>;
+    <span class="pnk">}</span>
+
+    <span class="kom">//Prywatna metoda obliczająca sumę dwóch liczb</span>
+    <span class="bl">private</span> <span class="gr">double</span> <span class="yl">obliczSume</span><span class="pnk">()</span> <span class="pnk">{</span>
+        <span class="lbl">suma</span> = <span class="lbl">liczba1</span> + <span class="lbl">liczba2</span>;
+    <span class="pnk">}</span>
+
+    <span class="kom">//Publiczna metoda wyświetlająca sumę</span>
+    <span class="bl">public</span> <span class="gr">String</span> <span class="yl">wyswietlSume</span><span class="pnk">()</span> <span class="pnk">{</span>
+        <span class="gr">System</span>.<span class="lbl">out</span>.<span class="yl">println</span><span class="pnk">(</span><span class="str">"Suma: "</span>+<span class="lbl">suma</span><span class="pnk">)</span>;
+    <span class="pnk">}</span>
+<span class="pnk">}</span>
+    </pre>
 </body>
 </html>
