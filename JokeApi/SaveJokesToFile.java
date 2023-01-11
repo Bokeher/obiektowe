@@ -34,8 +34,7 @@ public class SaveJokesToFile {
 
             fw.close();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            System.out.println("Zapis do pliku sie nie udal");
         }
     }
 }
