@@ -27,11 +27,23 @@ public class ServerMain {
                 if(ans.equals("1:wszystkie")) {
                     out.writeUTF("Lista: "+list.toString()+"\nPodaj wyraz do zapisu lub napisz 0:q aby zakończyć program: ");
                 } else {
-                    if(list.contains(ans)) out.writeUTF("Podane słowo już nam podaj inne");
-                    else {
-                        out.writeUTF("Dodano nowe słowo, jeśli chcesz wyświetlić listę słów wpisz 1:wszystkie lub podaj inne słowo: ");
-                        list.add(ans);
+                    // tylko litery
+                    String allowedChars = "aąbcćdeęfghijklłmnńoóprsśtuwyzźżx";
+                    boolean containsIllegalChars = false;
+                    for (int i = 0; i < ans.length(); i++) {
+                        String ch = Character.toString(ans.charAt(i)) ;
+
+                        if(allowedChars.indexOf(ch) == -1) {
+                            containsIllegalChars = true;
+                        }
                     }
+                    if(!containsIllegalChars) {
+                        if(list.contains(ans)) out.writeUTF("Podane słowo już nam podaj inne");
+                        else {
+                            out.writeUTF("Dodano nowe słowo, jeśli chcesz wyświetlić listę słów wpisz 1:wszystkie lub podaj inne słowo: ");
+                            list.add(ans);
+                        }
+                    } else out.writeUTF("Mozna uzywac tylko liter! Podaj inne slowo");
                 }
                 System.out.println(list);
             }
