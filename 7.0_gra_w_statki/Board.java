@@ -1,3 +1,9 @@
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -14,7 +20,64 @@ public class Board {
         }
     }
 
-    public boolean placeShip(int shipLength, String firstCoordinate, String secondCoordinate) {
+    // konstruktor aby stworzyc obiekt na podstawie String pobranego od client'a
+    public Board(String boardInString) {
+        String[] collumns = boardInString.split("\n");
+        for (int i = 0; i < collumns.length; i++) {
+            String[] rows = collumns[i].split(" ");
+            for (int j = 0; j < collumns.length; j++) {
+                board[i][j] = rows[j];
+            }
+        }
+    }
+
+    public String placeAllShips() {
+        Map<String, Integer> remainingShips = new LinkedHashMap<String, Integer>();
+        remainingShips.put("Czteromasztowce", 1);
+        remainingShips.put("Trzymasztowce", 2);
+        remainingShips.put("Dwumasztowce", 3);
+        remainingShips.put("Jednomasztowce", 4);
+
+        Scanner sc = new Scanner(System.in);
+
+        List<String> keys = new ArrayList<>(remainingShips.keySet());
+        List<Integer> values = new ArrayList<>(remainingShips.values());
+
+        for (int i = 0; i < remainingShips.size(); i++) {
+            String key = keys.get(i);
+            Integer value = values.get(i);
+
+            // i = 0 => shipLength = |-4|, i = 1 => shipLength = |-3|, itd.
+            int shipLength = Math.abs(i-4);
+
+            String shipName = key.toLowerCase().substring(0, key.length()-2)+"y";
+            while(value > 0) {
+                System.out.println(toString());
+                System.out.println("Wybierz gdzie ma stac statek "+shipName);
+                System.out.print("Pierwsza wspolrzedna: ");
+                String firstCord = sc.nextLine();
+                
+                String secndCord;
+                if(i == 3) {
+                    secndCord = firstCord;
+                } else {
+                    System.out.print("Druga wspolrzedna: ");
+                    secndCord = sc.nextLine();
+                }
+
+                boolean shipLegallyPlaced = placeShip(shipLength, firstCord, secndCord);
+                if(shipLegallyPlaced) {
+                    value--;
+                } else {
+                    System.out.println("Niepoprawne dane");
+                }
+            }
+            // break; // TODO: delete tjodaw
+        }
+        return this.toString();
+    }
+
+    private boolean placeShip(int shipLength, String firstCoordinate, String secondCoordinate) {
         if(!checkIfValidCoordinate(firstCoordinate)) return false;
         if(!checkIfValidCoordinate(secondCoordinate)) return false;
 
@@ -22,11 +85,11 @@ public class Board {
         int firstNumb;
         int secondNumb;
         if(firstCoordinate.charAt(0) == secondCoordinate.charAt(0)) {
-            // in case of changing number
+            // jezeli zmienia sie liczba
             firstNumb = Integer.parseInt(firstCoordinate.substring(1));
             secondNumb = Integer.parseInt(secondCoordinate.substring(1));
         } else {
-            // in case of changing letter
+            // jezeli zmienia sie litera
             lettersChange = true;
             firstNumb = letterToInt(firstCoordinate);
             secondNumb = letterToInt(secondCoordinate);
@@ -37,12 +100,12 @@ public class Board {
         if(secondNumb - firstNumb < 0) {
             beginCoordinate = secondCoordinate;
         }
-        //e9 e6
+
         System.out.println(beginCoordinate);
         int x;
         int y;
 
-        // check if there are any nearby ships that cant exist due to game rules 
+        // sprawdza czy sa jakies statki w poblizu (nie moga byc zgodnie z zasadami gry)
         for(int i = 0; i < shipLength; i++) {
             if(lettersChange) {
                 x = firstNumb-1+i;
@@ -55,7 +118,7 @@ public class Board {
             if(!noNearbyShips(x, y)) return false;
         }
 
-        // place ship on board
+        // stawianie statkow na planszy
         for(int i = 0; i < shipLength; i++) {
             if(lettersChange) {
                 x = firstNumb-1+i;
@@ -99,6 +162,18 @@ public class Board {
         return res;
     }
 
+    public String exportBoard() {
+        String res = "";
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board.length; j++) {
+                res += board[i][j]+" ";
+            }
+            res += "\n"; 
+        }
+
+        return res;
+    }
+
     private int letterToInt(String letter) {
         // ASCII to int then -96 (a=97, b=98, etc)
         char ch = letter.charAt(0);
@@ -108,7 +183,7 @@ public class Board {
     }
 
     public boolean checkIfValidCoordinate(String coordinate) {
-        Pattern pattern = Pattern.compile("[a-i]", Pattern.CASE_INSENSITIVE);
+        Pattern pattern = Pattern.compile("[a-j]", Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(coordinate.charAt(0)+"");
         if(!matcher.find()) return false;
 
@@ -151,5 +226,14 @@ public class Board {
         }
 
         return res;
+    }
+
+    public boolean checkIfLost() {
+        for (String[] strings : board) {
+            for (String string : strings) {
+                if(string.equals("O")) return false;
+            }
+        }
+        return true;
     }
 }
