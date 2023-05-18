@@ -7,11 +7,22 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        Scanner sc2 = new Scanner(System.in);
 
         String[] menuOptions = {
             "1 - Postaw serwer",
             "2 - Połącz z serwerem"
         };
+
+        Board test = new Board();
+        test.placeShip(4, "a1", "a4");
+        
+        Board test2 = new Board();
+        test2.placeShip(3, "a1", "a3");
+
+        System.out.println(test.combineBoards(test2));
+
+        // System.out.println(test.shotShip("a9"));
 
         Menu menu = new Menu(menuOptions);
         int choice = menu.getChoiceFromMenu(true);
@@ -37,19 +48,28 @@ public class Main {
                         continue;
                     }
 
-                    
                     String coordinate = "";
-                    boolean validMove = true;
-                    while(!validMove){
+                    boolean validMove = false;
+                    while(!validMove) {
+                        System.out.println(player2Board.getShootBoard());
                         System.out.print("Napisz wspolrzedna strzalu: ");
-                        coordinate = sc.nextLine();
+                        coordinate = sc2.nextLine();
                         validMove = player1Board.checkIfValidCoordinate(coordinate);
+                        validMove = true;
                     }
-                    boolean hit = player1Board.shotShip(coordinate);
+                    System.out.println(coordinate);
+                    int hit = player2Board.shotShip(coordinate);
+                    
 
-                    if(hit) {
-                        System.out.println("Statek trafiony");
+                    if(hit == 1) {
+                        System.out.println("Statek trafiony i zatopiony");
+                    } else if(hit == 2) {
+                        System.out.println("Statek trafiony i niezatopiony");
+                    } else {
+                        System.out.println("Pudło");
                     }
+
+                    String mess = "Przeciwnik strzelil w "+coordinate;
                     // TODO: tu dalej
 
 
@@ -60,8 +80,8 @@ public class Main {
                         System.out.println("Wygral gracz 1");
                     }
 
-                    // String ans = in.readUTF();
-                    // System.out.println(ans);
+                    String ans = in.readUTF();
+                    System.out.println(ans);
     
                     // out.writeUTF("suma: "+suma+"\nroznica: "+roznica+"\niloczyn: "+iloczyn); 
                   

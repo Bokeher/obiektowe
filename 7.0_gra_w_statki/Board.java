@@ -1,5 +1,6 @@
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -72,12 +73,12 @@ public class Board {
                     System.out.println("Niepoprawne dane");
                 }
             }
-            // break; // TODO: delete tjodaw
+            break; // TODO: delete tjodaw
         }
         return this.toString();
     }
 
-    private boolean placeShip(int shipLength, String firstCoordinate, String secondCoordinate) {
+    public boolean placeShip(int shipLength, String firstCoordinate, String secondCoordinate) {
         if(!checkIfValidCoordinate(firstCoordinate)) return false;
         if(!checkIfValidCoordinate(secondCoordinate)) return false;
 
@@ -101,7 +102,7 @@ public class Board {
             beginCoordinate = secondCoordinate;
         }
 
-        System.out.println(beginCoordinate);
+        // System.out.println(beginCoordinate);
         int x;
         int y;
 
@@ -127,7 +128,7 @@ public class Board {
                 x = letterToInt(beginCoordinate.substring(0, 1))-1;
                 y = firstNumb-1+i;
             }
-            System.out.println("X: "+x+" Y: "+y);
+            // System.out.println("X: "+x+" Y: "+y);
 
             board[y][x] = "O";
         }
@@ -198,17 +199,31 @@ public class Board {
         return true;
     }
 
-    public boolean shotShip(String coordinate) {
+    public int shotShip(String coordinate) {
         int x = letterToInt(coordinate.substring(0, 1))-1;
         int y = Integer.parseInt(coordinate.substring(1))-1;
 
         if(board[y][x].equals("O")) {
             board[y][x] = "x";
-            return true;
+
+            if(y<10) {
+                if(!board[y+1][x].equals("~")) return 2;
+            }
+            if(y>0) {
+                if(!board[y-1][x].equals("~")) return 2;
+            }
+            if(x<10) {
+                if(!board[y][x+1].equals("~")) return 2;
+            }
+            if(x>0) {
+                if(!board[y][x-1].equals("~")) return 2;
+            }
+
+            return 1;
         } 
         
         board[y][x] = "o";
-        return false;
+        return 0;
     }
 
     public String getShootBoard() {
@@ -235,5 +250,25 @@ public class Board {
             }
         }
         return true;
+    }
+
+    public String[][] getBoard() {
+        return this.board;
+    }
+
+    public String combineBoards(Board board2) {
+        String b1 = toString();
+        String b2 = board2.getShootBoard();
+
+        String[] arr1 = b1.split("\n");
+        String[] arr2 = b2.split("\n");
+
+        String res = "";
+
+        for (int i = 0; i < arr1.length; i++) {
+            res += arr1[i]+"   "+arr2[i]+"\n";
+        }
+
+        return res;
     }
 }
