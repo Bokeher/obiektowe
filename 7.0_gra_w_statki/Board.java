@@ -263,7 +263,8 @@ public class Board {
         String[] arr1 = b1.split("\n");
         String[] arr2 = b2.split("\n");
 
-        String res = "";
+        String res = "     Twoja Plansza           Plansza strzałów\n";
+                    //   1  O ~ ~ ~ ~ ~ ~ ~ ~ ~    1  ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
         for (int i = 0; i < arr1.length; i++) {
             res += arr1[i]+"   "+arr2[i]+"\n";

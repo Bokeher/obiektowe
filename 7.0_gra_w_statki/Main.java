@@ -1,5 +1,6 @@
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
@@ -14,13 +15,13 @@ public class Main {
             "2 - Połącz z serwerem"
         };
 
-        Board test = new Board();
-        test.placeShip(4, "a1", "a4");
+        // Board test = new Board();
+        // test.placeShip(4, "a1", "a4");
         
-        Board test2 = new Board();
-        test2.placeShip(3, "a1", "a3");
+        // Board test2 = new Board();
+        // test2.placeShip(3, "a1", "a3");
 
-        System.out.println(test.combineBoards(test2));
+        // System.out.println(test.combineBoards(test2));
 
         // System.out.println(test.shotShip("a9"));
 
@@ -41,36 +42,39 @@ public class Main {
                 player1Board.placeAllShips();
 
                 while (true) {
+                    clearCmd();
                     // get board from player 2
                     if(player2Board == null) {
                         String ans = in.readUTF();
                         player2Board = new Board(ans);
                         continue;
                     }
+                    System.out.println(player1Board.combineBoards(player2Board));
 
                     String coordinate = "";
                     boolean validMove = false;
                     while(!validMove) {
-                        System.out.println(player2Board.getShootBoard());
                         System.out.print("Napisz wspolrzedna strzalu: ");
                         coordinate = sc2.nextLine();
                         validMove = player1Board.checkIfValidCoordinate(coordinate);
-                        validMove = true;
                     }
-                    System.out.println(coordinate);
-                    int hit = player2Board.shotShip(coordinate);
+                    // System.out.println(coordinate);
+                    // int hit = player2Board.shotShip(coordinate);
                     
 
-                    if(hit == 1) {
-                        System.out.println("Statek trafiony i zatopiony");
-                    } else if(hit == 2) {
-                        System.out.println("Statek trafiony i niezatopiony");
-                    } else {
-                        System.out.println("Pudło");
-                    }
+                    // if(hit == 1) {
+                    //     System.out.println("Statek trafiony i zatopiony");
+                    // } else if(hit == 2) {
+                    //     System.out.println("Statek trafiony i niezatopiony");
+                    // } else {
+                    //     System.out.println("Pudło");
+                    // }
 
-                    String mess = "Przeciwnik strzelil w "+coordinate;
+                    String mess = player2Board.combineBoards(player1Board)+"\n"+
+                    "Podaj wspolrzedna twojego strzalu: ";
                     // TODO: tu dalej
+
+                    out.writeUTF(mess);
 
 
                     // sprawdza czy ktos wygral
@@ -81,7 +85,8 @@ public class Main {
                     }
 
                     String ans = in.readUTF();
-                    System.out.println(ans);
+                    player1Board.shotShip(ans);
+                    // System.out.println(ans);
     
                     // out.writeUTF("suma: "+suma+"\nroznica: "+roznica+"\niloczyn: "+iloczyn); 
                   
@@ -105,13 +110,20 @@ public class Main {
                     if(firstLoop) {
                         out.writeUTF(board.exportBoard());
                         firstLoop = false;
-                    }
-                    
+                    }                    
+
                     String ans = in.readUTF();
                     System.out.println(ans);
 
                     ans = sc.nextLine();
+
+                    while(!board.checkIfValidCoordinate(ans)) {
+                        System.out.println("Nieprawidlowy format \nPodaj wspolrzedna strzalu: ");
+                        ans = sc.nextLine();
+                    }
+
                     out.writeUTF(ans);
+                    // clearCmd();
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -141,5 +153,9 @@ public class Main {
             // Scanner sc = new Scanner(System.in);
             // out.writeUTF("Witaj na serwerze. Podaj liczby w foramcie liczba1;liczba2: ");
             
+    }
+
+    private static void clearCmd() throws InterruptedException, IOException {
+        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
     }
 }
