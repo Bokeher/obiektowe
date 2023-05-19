@@ -59,7 +59,7 @@ public class Main {
                         validMove = player1Board.checkIfValidCoordinate(coordinate);
                     }
                     // System.out.println(coordinate);
-                    // int hit = player2Board.shotShip(coordinate);
+                    int hit = player2Board.shotShip(coordinate);
                     
 
                     // if(hit == 1) {
@@ -70,9 +70,19 @@ public class Main {
                     //     System.out.println("Pudło");
                     // }
 
+                    
                     String mess = player2Board.combineBoards(player1Board)+"\n"+
                     "Podaj wspolrzedna twojego strzalu: ";
-                    // TODO: tu dalej
+                    /*
+                     * TODO:
+                     * 1) wysylanie klientowi 2 tablic odzielonnych \n 
+                     * 2) aktualizacja stanu gry po i przed ruchem
+                     * 3) konczenie gry po wygranej jednego z graczy
+                     * 4) komentarze do kodu
+                     * 5) poprawa kodu aby byl zgodny z poleceniem
+                     * 6) wywalenie komentarzy (kodu)
+                     * 7) dodanie legendy i zasad gry do menu
+                     */
 
                     out.writeUTF(mess);
 
@@ -156,6 +166,9 @@ public class Main {
     }
 
     private static void clearCmd() throws InterruptedException, IOException {
-        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        System.out.print("\033[H\033[2J");  
+        System.out.flush();
+
+        // new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
     }
 }
