@@ -3,6 +3,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Utils {
+    /**
+     * Sprawdza czy podana wspolrzedna moze istniec na planszy
+     * @param coordinate wspolrzedna do sprawdzenia
+     * @return true, jezeli moze istniec inaczej false
+     */
     public boolean checkIfValidCoordinate(String coordinate) {
         if(coordinate.equals("")) return false;
 
@@ -21,6 +26,9 @@ public class Utils {
         return true;
     }
 
+    /**
+     * Czysci konsole
+     */
     public void clearCmd() {
         // for vsc console (might work on linux)
         try {
@@ -33,6 +41,10 @@ public class Utils {
 
     }
 
+    /**
+     * Prosi uzutkownika o podanie wspolrzednej az do skutku
+     * @return wspolrzedna pobrana od uzytkownika
+     */
     public String getShootCoordinate() {
         Scanner sc = new Scanner(System.in);
         String coordinate = "";
@@ -45,6 +57,11 @@ public class Utils {
         return coordinate;
     }
 
+    /**
+     * zamienia liczbe na rezultat strzalu
+     * @param shotResult rezultat strzalu [0-2]
+     * @return 0-pudlo, 1-zatopienie, 2-trafienie
+     */
     public String getShotText(int shotResult) {
         if(shotResult == 1) {
             // trafinie z zatopieniem
@@ -55,5 +72,23 @@ public class Utils {
         } else {
             return "Pudło!";
         }
+    }
+
+    /**
+     * Liczy ilość punktów na podstawie ilości trafień
+     * @param board - plansza strzałów
+     * @return ilość punktów
+     */
+    public int countPoints(GameBoard board) {
+        String[][] arr = board.getBoard();
+        int points = 0;
+
+        for (String[] strings : arr) {
+            for (String string : strings) {
+                if(string.equals("x")) points++;
+            }
+        }
+
+        return points;
     }
 }

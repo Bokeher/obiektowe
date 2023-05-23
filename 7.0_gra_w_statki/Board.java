@@ -7,17 +7,18 @@ import java.util.Scanner;
 public class Board implements GameBoard {
     private Utils utils = new Utils();
     
-    private final String hitSign = "x";
-    private final String shipSign = "O";
-    private final String missSign = "o";
-    private final String emptySign = "~";
+    public final String HIT_SIGN = "x";
+    public final String SHIP_SIGN = "O";
+    public final String MISS_SIGN = "■";
+    public final String EMPTY_SIGN = "~";
 
     private String[][] board = new String[10][10];  
 
+    // wypelnia tablice znakami pustego pola
     public Board() {
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board.length; j++) {
-                board[i][j] = emptySign;
+                board[i][j] = EMPTY_SIGN;
             }
         }
     }
@@ -33,6 +34,9 @@ public class Board implements GameBoard {
         }
     }
 
+    /**
+     * Prosi uzytkownika o rozstawienie wszystich statkow oraz je zapisuje na planszy
+     */
     public void placeAllShips() {
         utils.clearCmd();
 
@@ -77,10 +81,19 @@ public class Board implements GameBoard {
                     System.out.println("Niepoprawne dane");
                 }
             }
+            break;
         }
         System.out.println("Oczekiwanie na rozmieszczenie statków przez przeciwnika...");
     }
 
+
+    /**
+     * Stawia statke na planszy
+     * @param shipLength dlugosc statku [1-4]
+     * @param firstCoordinate pierwsza wspolrzedna statku
+     * @param secondCoordinate druga wspolrzedna statku (ostatnia)
+     * @return true, jezeli sie udalo inaczej false
+     */
     public boolean placeShip(int shipLength, String firstCoordinate, String secondCoordinate) {
         if(!utils.checkIfValidCoordinate(firstCoordinate)) return false;
         if(!utils.checkIfValidCoordinate(secondCoordinate)) return false;
@@ -133,18 +146,24 @@ public class Board implements GameBoard {
             }
             // System.out.println("X: "+x+" Y: "+y);
 
-            board[y][x] = shipSign;
+            board[y][x] = SHIP_SIGN;
         }
 
         return true;
     }
 
+    /**
+     * Sprawdza czy nie ma znaku statku w poblizu, co uniemozliwialoby rozgrywke przez zasady gry
+     * @param x pierwsza wspolrzedna
+     * @param y druga wsporzedna
+     * @return true jezeli nie ma statkow w poblizu, false jezeli sa
+     */
     private boolean noNearbyShips(int x, int y) {
-        if(y>0 && board[y-1][x] != emptySign) return false;
-        if(y<9 && board[y+1][x] != emptySign) return false;
+        if(y>0 && board[y-1][x] != EMPTY_SIGN) return false;
+        if(y<9 && board[y+1][x] != EMPTY_SIGN) return false;
         
-        if(x>0 && board[y][x-1] != emptySign) return false;
-        if(x<9 && board[y][x+1] != emptySign) return false;
+        if(x>0 && board[y][x-1] != EMPTY_SIGN) return false;
+        if(x<9 && board[y][x+1] != EMPTY_SIGN) return false;
 
         return true;
     }
@@ -166,6 +185,10 @@ public class Board implements GameBoard {
         return res;
     }
 
+    /**
+     * Metoda potrzebna do przekazywania tablicy klientowi w celu wyswietlenia mu jego plansz
+     * @return zwraca cala plansze w postaci pol odzielonych spacja oraz linijek odzielonych \n
+     */
     public String exportBoard() {
         String res = "";
         for (int i = 0; i < board.length; i++) {
@@ -178,7 +201,13 @@ public class Board implements GameBoard {
         return res;
     }
 
+    /**
+     * zmienia litere na indeks tablicy za pomoca kodu ASCII
+     * @param letter litera do zmiany w liczbe
+     * @return liczbe odpowiadajaca indeksu tablicy [0-9]
+     */
     private int letterToInt(String letter) {
+        letter = letter.toLowerCase();
         // ASCII to int then -96 (a=97, b=98, etc)
         char ch = letter.charAt(0);
         int index = ch - 96;
@@ -187,39 +216,43 @@ public class Board implements GameBoard {
     }
 
     /**
-    @param coordinate - The coordinate to shoot at.
+    @param coordinate koordynat strzalu
     @return
-    1 if the shot hits and sinks the ship.
-    2 if the shot hits but the ship is not yet sunk.
-    0 if the shot misses the ship.
+    1 jezeli jest trafiony statek i zatopiony
+    2 jezeli trafiony, ale nie zatopiony
+    0 jezli pudlo
     */
     public int shotShip(String coordinate) {
         int x = letterToInt(coordinate.substring(0, 1))-1;
         int y = Integer.parseInt(coordinate.substring(1))-1;
 
-        if(board[y][x].equals(shipSign) || board[y][x].equals(hitSign)) {
-            board[y][x] = hitSign;
+        if(board[y][x].equals(SHIP_SIGN) || board[y][x].equals(HIT_SIGN)) {
+            board[y][x] = HIT_SIGN;
 
             if(y<10) {
-                if(!board[y+1][x].equals(emptySign)) return 2;
+                if(!board[y+1][x].equals(EMPTY_SIGN)) return 2;
             }
             if(y>0) {
-                if(!board[y-1][x].equals(emptySign)) return 2;
+                if(!board[y-1][x].equals(EMPTY_SIGN)) return 2;
             }
             if(x<10) {
-                if(!board[y][x+1].equals(emptySign)) return 2;
+                if(!board[y][x+1].equals(EMPTY_SIGN)) return 2;
             }
             if(x>0) {
-                if(!board[y][x-1].equals(emptySign)) return 2;
+                if(!board[y][x-1].equals(EMPTY_SIGN)) return 2;
             }
 
             return 1;
         } 
         
-        board[y][x] = missSign;
+        board[y][x] = MISS_SIGN;
         return 0;
     }
 
+    /**
+     * Przerabia plansze na taka ktora zawiera tylko strzaly i trafienia, aby nie ujawnic pozycje statkow
+     * @return zwraca plansze strzalow
+     */
     public String getShootBoard() {
         String res = "   A B C D E F G H I J \n";
 
@@ -228,7 +261,7 @@ public class Board implements GameBoard {
             if(i < 9) res += " ";
 
             for (int j = 0; j < board.length; j++) {
-                if(!board[i][j].equals(shipSign)) res += board[i][j]+" ";
+                if(!board[i][j].equals(SHIP_SIGN)) res += board[i][j]+" ";
                 else res += "~ ";
             }
             res += "\n";
@@ -236,11 +269,15 @@ public class Board implements GameBoard {
 
         return res;
     }
-
+    /**
+     * Sprawdza czy gracz przegral
+     * @return true - jezeli przegral
+     *         false - jezeli nie przegral
+     */
     public boolean checkIfLost() {
         for (String[] strings : board) {
             for (String string : strings) {
-                if(string.equals(shipSign)) return false;
+                if(string.equals(SHIP_SIGN)) return false;
             }
         }
         return true;
@@ -250,6 +287,11 @@ public class Board implements GameBoard {
         return this.board;
     }
 
+    /**
+     * laczy 2 tablice tak aby moc wyswietlic obie naraz obok siebie
+     * @param board2 druga tablica ktora jest tablica strzalow
+     * @return zwraca poloczone tablice
+     */
     public String combine(GameBoard board2) {
         String b1 = toString();
         String b2 = board2.getShootBoard();
